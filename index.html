@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Battles Legacy — Honoring Our Past. Inspiring Our Future.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=EB+Garamond:ital@0;1&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon:#3a0d12; --maroon2:#4a141a; --wine:#5c1a1f;
+  --gold:#c9a24b; --gold2:#e0c074; --gold-soft:#d8b662;
+  --cream:#f5ecd8; --cream2:#efe3c8; --parchment:#e9dcbd;
+  --ink:#2b1a10; --muted:#7a6b52;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'EB Garamond',Georgia,serif;color:var(--ink);background:var(--cream);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.script{font-family:'Dancing Script',cursive}
+a{color:inherit;text-decoration:none}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#2c090d,#3a0d12);border-bottom:1px solid rgba(201,162,75,.35);box-shadow:0 4px 20px rgba(0,0,0,.35)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1400px;margin:0 auto;gap:20px}
+.brand{color:var(--gold2);line-height:1}
+.brand .name{font-family:'Cormorant Garamond';font-size:26px;font-weight:600;letter-spacing:3px;text-transform:uppercase}
+.brand .tag{font-family:'Cormorant Garamond';font-style:italic;font-size:14px;color:var(--gold-soft);letter-spacing:1px}
+.menu{display:flex;gap:22px;align-items:center;flex-wrap:wrap;justify-content:center}
+.menu a{color:#e9dcc4;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 2px;position:relative;transition:.25s}
+.menu a:hover,.menu a.active{color:var(--gold2)}
+.menu a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--gold);transition:.3s}
+.menu a:hover::after,.menu a.active::after{width:100%}
+.login{border:1px solid var(--gold);color:var(--gold2);padding:8px 18px;border-radius:4px;font-size:13px;letter-spacing:2px;text-transform:uppercase;transition:.25s;white-space:nowrap}
+.login:hover{background:var(--gold);color:var(--maroon)}
+.burger{display:none;background:none;border:0;color:var(--gold2);font-size:28px;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;background:
+  radial-gradient(120% 120% at 50% 0%, rgba(233,220,189,.15), transparent 60%),
+  linear-gradient(180deg,#e9d9b4 0%, #d9b98a 45%, #7c4a24 100%);
+  overflow:hidden;padding:0 0 30px}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 80% at 15% 40%, rgba(60,20,10,.25), transparent 70%),
+  radial-gradient(60% 80% at 85% 40%, rgba(60,20,10,.25), transparent 70%);
+  pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1fr 1.15fr 1fr;align-items:end;gap:0;min-height:480px}
+.hero-portraits{display:flex;align-items:flex-end;justify-content:center;gap:6px}
+.hero-portraits img{width:50%;filter:drop-shadow(0 12px 20px rgba(40,15,5,.45));display:block}
+.hero-center{text-align:center;padding:40px 18px 60px;align-self:center}
+.hero-center h1{font-size:clamp(38px,5.2vw,72px);line-height:.98;color:#2e0f0a;letter-spacing:1px;text-shadow:0 2px 10px rgba(255,255,255,.25)}
+.hero-center .legacy{display:block;font-size:clamp(40px,5.6vw,74px);color:#7a1d1d;margin-top:2px}
+.rule{width:200px;height:1px;background:linear-gradient(90deg,transparent,var(--wine),transparent);margin:20px auto 18px;position:relative}
+.rule::after{content:"❧";position:absolute;left:50%;top:-13px;transform:translateX(-50%);color:var(--wine);font-size:16px;background:transparent}
+.hero-center p{max-width:440px;margin:0 auto 26px;color:#3a2415;font-size:19px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,#4a141a,#360d11);color:var(--gold2);border:1px solid rgba(201,162,75,.5);padding:15px 30px;border-radius:5px;font-family:'Cormorant Garamond';font-size:19px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.28s;box-shadow:0 8px 22px rgba(50,15,10,.35)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(50,15,10,.5);color:#fff}
+
+/* VALUES STRIP */
+.values{background:linear-gradient(180deg,#360d11,#2b090c);color:var(--cream);padding:34px 0;border-top:1px solid rgba(201,162,75,.25);border-bottom:1px solid rgba(201,162,75,.25)}
+.values-grid{display:grid;grid-template-columns:1.1fr repeat(4,1fr);gap:24px;align-items:center}
+.quote{font-family:'Cormorant Garamond';font-style:italic;font-size:21px;color:var(--gold2);line-height:1.35}
+.quote span{display:block;font-size:15px;color:var(--gold-soft);margin-top:8px;font-style:normal}
+.value{display:flex;gap:14px;align-items:flex-start}
+.value .ic{flex:0 0 46px;height:46px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold2);font-size:22px}
+.value h4{font-family:'Cormorant Garamond';color:var(--gold2);font-size:20px;letter-spacing:.5px}
+.value p{font-size:14px;color:#d8cbb0;line-height:1.35}
+
+/* CARDS */
+.cards-section{background:
+  linear-gradient(180deg,#efe3c8,#e6d6b4);
+  padding:56px 0}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.card{background:linear-gradient(180deg,#fbf4e2,#f0e4c6);border:1px solid #cdb684;border-radius:8px;padding:18px 16px;text-align:center;box-shadow:0 8px 20px rgba(90,60,20,.12);transition:.3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 30px rgba(90,60,20,.22)}
+.card h3{font-size:16px;letter-spacing:2px;text-transform:uppercase;color:var(--wine);margin-bottom:14px;font-weight:600}
+.card h3 .ci{color:var(--gold);margin-right:6px}
+.card img{width:100%;height:130px;object-fit:cover;border-radius:5px;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+.card .cap{font-family:'Cormorant Garamond';font-size:19px;color:var(--ink);margin-top:10px;font-weight:600}
+.card .sub{font-size:14px;color:var(--muted)}
+.events{text-align:left;font-size:15px}
+.events li{list-style:none;margin-bottom:10px}
+.events .d{color:var(--wine);font-weight:600;letter-spacing:1px;font-size:13px;text-transform:uppercase}
+.card .mini{background:var(--wine);color:var(--gold2);border:0;padding:9px 16px;border-radius:4px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin-top:14px;cursor:pointer;transition:.25s}
+.card .mini:hover{background:var(--maroon)}
+.verse{font-family:'Cormorant Garamond';font-style:italic;font-size:17px;color:var(--ink);line-height:1.4}
+.verse .ref{display:block;text-align:right;font-style:normal;color:var(--wine);margin-top:8px;font-size:15px}
+
+/* INTERACTIVE TREE */
+.tree-section{background:linear-gradient(180deg,#2b090c,#3a0d12);color:var(--cream);padding:60px 0}
+.section-head{text-align:center;margin-bottom:10px}
+.section-head .eyebrow{color:var(--gold);letter-spacing:4px;text-transform:uppercase;font-size:13px}
+.section-head h2{font-size:clamp(30px,4vw,48px);color:var(--gold2);margin-top:6px}
+.section-head p{color:#d8cbb0;max-width:620px;margin:12px auto 0;font-size:17px}
+.tree-wrap{margin-top:28px;background:radial-gradient(circle at 50% 30%,#4a141a,#2b090c);border:1px solid rgba(201,162,75,.35);border-radius:12px;overflow:hidden;position:relative;box-shadow:inset 0 0 60px rgba(0,0,0,.5)}
+.tree-hint{position:absolute;top:12px;left:16px;color:var(--gold-soft);font-size:13px;letter-spacing:1px;z-index:5;opacity:.9}
+.tree-controls{position:absolute;top:12px;right:16px;z-index:5;display:flex;gap:8px}
+.tree-controls button{width:38px;height:38px;border-radius:50%;border:1px solid var(--gold);background:rgba(58,13,18,.8);color:var(--gold2);font-size:20px;cursor:pointer;transition:.2s}
+.tree-controls button:hover{background:var(--gold);color:var(--maroon)}
+#treeViewport{height:460px;cursor:grab;touch-action:none}
+#treeViewport.grabbing{cursor:grabbing}
+#treeStage{transform-origin:0 0;position:relative;width:1200px;height:700px}
+.edge{position:absolute;background:linear-gradient(var(--gold),transparent);opacity:.5}
+.node{position:absolute;width:118px;text-align:center;transform:translate(-50%,-50%);cursor:pointer;transition:.2s}
+.node:hover{filter:brightness(1.12)}
+.node .ph{width:78px;height:78px;border-radius:50%;margin:0 auto;border:3px solid var(--gold);box-shadow:0 6px 16px rgba(0,0,0,.5);background:#1c0608 center/cover;display:grid;place-items:center;color:var(--gold-soft);font-family:'Cormorant Garamond';font-size:30px}
+.node .nm{font-family:'Cormorant Garamond';font-size:17px;color:var(--gold2);margin-top:7px;line-height:1.1}
+.node .yr{font-size:12px;color:#cdbd97}
+.node.sel .ph{border-color:#fff;box-shadow:0 0 0 4px rgba(201,162,75,.4),0 6px 16px rgba(0,0,0,.5)}
+.person-card{position:absolute;bottom:16px;left:16px;z-index:6;background:linear-gradient(180deg,#fbf4e2,#efe1c0);color:var(--ink);border-radius:10px;padding:16px 18px;width:260px;box-shadow:0 12px 30px rgba(0,0,0,.5);border:1px solid var(--gold);display:none}
+.person-card.show{display:block}
+.person-card h4{font-family:'Cormorant Garamond';color:var(--wine);font-size:24px}
+.person-card .yr2{color:var(--muted);font-size:14px;margin-bottom:8px}
+.person-card p{font-size:15px;line-height:1.45}
+
+/* FOOTER */
+footer{background:linear-gradient(180deg,#2b090c,#1c0507);color:#d8cbb0;padding:48px 0 26px;border-top:1px solid rgba(201,162,75,.3)}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1.2fr 1.4fr auto;gap:30px;align-items:start}
+.foot h5{font-family:'Cormorant Garamond';color:var(--gold2);font-size:20px;margin-bottom:10px;display:flex;gap:8px;align-items:center}
+.foot p{font-size:15px}
+.sub-row{display:flex;margin-top:12px;border:1px solid var(--gold);border-radius:5px;overflow:hidden;max-width:280px}
+.sub-row input{flex:1;border:0;padding:10px 12px;background:#160406;color:#f0e4c6;font-family:inherit}
+.sub-row button{background:var(--gold);color:var(--maroon);border:0;padding:0 18px;letter-spacing:1.5px;text-transform:uppercase;font-size:13px;cursor:pointer}
+.socials{display:flex;gap:12px;margin-top:6px}
+.socials a{width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold2);transition:.2s}
+.socials a:hover{background:var(--gold);color:var(--maroon)}
+.foot-brand{text-align:center;color:var(--gold2)}
+.foot-brand .t{font-family:'Cormorant Garamond';font-size:15px;letter-spacing:2px;line-height:1.3}
+.copyright{text-align:center;margin-top:34px;padding-top:18px;border-top:1px solid rgba(201,162,75,.2);font-size:13px;color:#9c8b6c;letter-spacing:1px}
+
+/* RESPONSIVE */
+@media(max-width:1080px){
+  .menu{display:none}
+  .burger{display:block}
+  .menu.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#2c090d;padding:18px 24px;gap:14px;border-bottom:1px solid var(--gold)}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .values-grid{grid-template-columns:1fr 1fr}
+  .quote{grid-column:1/-1;text-align:center}
+}
+@media(max-width:760px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-portraits{order:2}
+  .hero-portraits.left{display:none}
+  .hero-center{order:1;padding:36px 16px}
+  .foot-grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="name">The Battles Legacy</div>
+      <div class="tag script" style="font-size:16px">Honoring Our Past. Inspiring Our Future.</div>
+    </div>
+    <nav class="menu" id="menu">
+      <a class="active" href="#">Home</a>
+      <a href="#">History</a>
+      <a href="#tree">Family Tree</a>
+      <a href="#">Faith</a>
+      <a href="#">Enterprise</a>
+      <a href="#">Health</a>
+      <a href="#cards">Family News</a>
+      <a href="#">Memorial</a>
+      <a href="#">Heritage</a>
+      <a class="login" href="#">⚿ Login</a>
+    </nav>
+    <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-portraits left">
+        <img src="assets/p1_richmond.jpg" alt="Richmond Battles">
+        <img src="assets/p2_john.jpg" alt="John N. Battles">
+      </div>
+      <div class="hero-center">
+        <h1>One Family.<br>Many Stories.<span class="legacy script">One Legacy.</span></h1>
+        <div class="rule"></div>
+        <p>Welcome to our family's digital home — a place where generations come together to preserve our history, celebrate our faith, honor our ancestors, and build a stronger future for those who follow us.</p>
+        <a href="#tree" class="btn">Explore Our Family Tree ❦</a>
+      </div>
+      <div class="hero-portraits">
+        <img src="assets/p3_holmes.jpg" alt="William Holmes">
+        <img src="assets/p4_lafane.jpg" alt="Lafane Battles Sr.">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="container">
+    <div class="values-grid">
+      <div class="quote">"One generation shall praise thy works to another, and shall declare thy mighty acts."<span>— Psalm 145:4</span></div>
+      <div class="value"><div class="ic">❦</div><div><h4>Our Roots</h4><p>Remember where we come from.</p></div></div>
+      <div class="value"><div class="ic">✝</div><div><h4>Our Faith</h4><p>Faith is the foundation of our family.</p></div></div>
+      <div class="value"><div class="ic">♟</div><div><h4>Our Family</h4><p>Together is our favorite place to be.</p></div></div>
+      <div class="value"><div class="ic">★</div><div><h4>Our Legacy</h4><p>Building a legacy they can be proud of.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CARDS -->
+<section class="cards-section" id="cards">
+  <div class="container">
+    <div class="cards">
+      <div class="card">
+        <h3><span class="ci">❖</span>Family News</h3>
+        <img src="assets/reunion.jpg" alt="Holmes Family Reunion">
+        <div class="cap">Holmes Family Reunion</div>
+        <div class="sub">June 21, 2025</div>
+        <button class="mini">Read More</button>
+      </div>
+      <div class="card">
+        <h3><span class="ci">🗓</span>Upcoming Events</h3>
+        <ul class="events">
+          <li><div class="d">May 25</div>Memorial Day Tribute</li>
+          <li><div class="d">June 21</div>Holmes Family Reunion</li>
+          <li><div class="d">July 4</div>Independence Day</li>
+          <li><div class="d">Aug 15</div>Battles Legacy Scholarship</li>
+        </ul>
+        <button class="mini">View Calendar</button>
+      </div>
+      <div class="card">
+        <h3><span class="ci">❈</span>Featured Memorial</h3>
+        <img src="assets/memorial.jpg" alt="Elizabeth Battles Holmes">
+        <div class="cap">Elizabeth Battles Holmes</div>
+        <div class="sub">Sept 29, 1936 – June 17, 2022</div>
+        <button class="mini">View Memorial</button>
+      </div>
+      <div class="card">
+        <h3><span class="ci">⚶</span>Family Tree</h3>
+        <img src="assets/tree.jpg" alt="Family Tree">
+        <div class="cap">Explore Our Roots</div>
+        <div class="sub">Discover how we connect.</div>
+        <button class="mini" onclick="location.href='#tree'">Explore Tree</button>
+      </div>
+      <div class="card">
+        <h3><span class="ci">📖</span>Faith Corner</h3>
+        <img src="assets/candle.jpg" alt="Scripture">
+        <div class="verse" style="margin-top:12px">"Be strong and courageous. Do not be afraid; for the Lord your God will be with you wherever you go."<span class="ref">— Joshua 1:9</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE TREE -->
+<section class="tree-section" id="tree">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Interactive</div>
+      <h2>Trace the Family Line</h2>
+      <p>This is the piece TribalPages can't give you — a living, zoomable family tree. Drag to pan, scroll or use the buttons to zoom, and tap any relative to open their story. Built from your GEDCOM file so it's always accurate.</p>
+    </div>
+    <div class="tree-wrap">
+      <div class="tree-hint">✋ Drag to pan · scroll to zoom · click a person</div>
+      <div class="tree-controls">
+        <button onclick="zoomTree(1.2)">+</button>
+        <button onclick="zoomTree(0.83)">−</button>
+        <button onclick="resetTree()">⟲</button>
+      </div>
+      <div id="treeViewport">
+        <div id="treeStage"></div>
+      </div>
+      <div class="person-card" id="personCard">
+        <h4 id="pcName"></h4>
+        <div class="yr2" id="pcYears"></div>
+        <p id="pcBio"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot">
+        <h5>✉ Stay Connected</h5>
+        <p>Subscribe for family updates and news.</p>
+        <div class="sub-row"><input placeholder="Your email address"><button>Subscribe</button></div>
+      </div>
+      <div class="foot">
+        <h5>🔒 Private Family Website</h5>
+        <p>This is a private website for family members. Login to access all features, upload photos, and share your memories.</p>
+        <button class="login" style="margin-top:12px;display:inline-block">⚿ Login</button>
+      </div>
+      <div class="foot">
+        <h5>Faith, Family &amp; Love</h5>
+        <p class="script" style="font-size:19px;color:var(--gold-soft)">Rooted in Faith. United in Love. Building Our Legacy.</p>
+        <div class="socials"><a href="#">f</a><a href="#">◎</a><a href="#">✉</a></div>
+      </div>
+      <div class="foot-brand">
+        <div style="font-size:42px;color:var(--gold)">❦</div>
+        <div class="t">Building On<br>The Battles Legacy</div>
+      </div>
+    </div>
+    <div class="copyright">© 2026 The Battles Legacy · A private family heritage site · Crafted with care</div>
+  </div>
+</footer>
+
+<script>
+/* ---- Interactive family tree ---- */
+const people = {
+  lafane:{name:"Lafane Battles Sr.",years:"1896 – 1978",img:"assets/av_lafane.png",bio:"Family patriarch and landowner. His faith and grit anchored the Battles line through hard years.",x:250,y:110},
+  richmond:{name:"Richmond Battles",years:"1832 –",img:"assets/av_richmond.png",bio:"One of the earliest documented ancestors in our GEDCOM. The root of the family story.",x:250,y:300},
+  john:{name:"John N. Battles",years:"1870 – 1940",img:"assets/av_john.png",bio:"Served with distinction in uniform. Remembered for his discipline and devotion to family.",x:600,y:300},
+  holmes:{name:"William Holmes",years:"1921 – 1988",img:"assets/av_holmes.png",bio:"Joined the family through the Holmes line. A quiet leader and steadfast provider.",x:950,y:110},
+  elizabeth:{name:"Elizabeth Battles Holmes",years:"1936 – 2022",img:"assets/av_elizabeth.png",bio:"Beloved matriarch who kept the family together. Her reunions became a treasured tradition.",x:775,y:300},
+  gen3a:{name:"Add a relative",years:"Your family",img:"",bio:"Every person in your GEDCOM becomes a node here — click to read memories, photos and documents the family attaches to them.",x:425,y:490},
+  gen3b:{name:"Add a relative",years:"Your family",img:"",bio:"Members can upload directly to any person. Everything is reviewed by a moderator before it appears.",x:775,y:490},
+  gen3c:{name:"Add a relative",years:"Your family",img:"",bio:"The tree scales to hundreds of relatives while staying smooth on phone and desktop.",x:1000,y:490}
+};
+const edges = [["richmond","john"],["john","holmes"],["john","elizabeth"],["lafane","richmond"],["holmes","elizabeth"],["elizabeth","gen3a"],["elizabeth","gen3b"],["elizabeth","gen3c"]];
+const stage = document.getElementById('treeStage');
+// edges
+edges.forEach(([a,b])=>{
+  const p1=people[a],p2=people[b];
+  const dx=p2.x-p1.x, dy=p2.y-p1.y, len=Math.hypot(dx,dy), ang=Math.atan2(dy,dx)*180/Math.PI;
+  const e=document.createElement('div'); e.className='edge';
+  e.style.cssText=`left:${p1.x}px;top:${p1.y}px;width:${len}px;height:2px;transform:rotate(${ang}deg);transform-origin:0 0`;
+  stage.appendChild(e);
+});
+// nodes
+Object.entries(people).forEach(([k,p])=>{
+  const n=document.createElement('div'); n.className='node'; n.style.left=p.x+'px'; n.style.top=p.y+'px';
+  const ph = p.img ? `<div class="ph" style="background-image:url('${p.img}')"></div>` : `<div class="ph">+</div>`;
+  n.innerHTML=`${ph}<div class="nm">${p.name}</div><div class="yr">${p.years}</div>`;
+  n.onclick=(ev)=>{ev.stopPropagation();select(k,n);};
+  stage.appendChild(n);
+});
+function select(k,n){
+  document.querySelectorAll('.node').forEach(x=>x.classList.remove('sel'));
+  n.classList.add('sel');
+  const p=people[k];
+  pcName.textContent=p.name; pcYears.textContent=p.years; pcBio.textContent=p.bio;
+  personCard.classList.add('show');
+}
+/* pan + zoom */
+let scale=.72, tx=40, ty=30, dragging=false, sx,sy;
+const vp=document.getElementById('treeViewport');
+function apply(){stage.style.transform=`translate(${tx}px,${ty}px) scale(${scale})`;}
+apply();
+function zoomTree(f){scale=Math.min(1.8,Math.max(.4,scale*f));apply();}
+function resetTree(){scale=.72;tx=40;ty=30;apply();personCard.classList.remove('show');document.querySelectorAll('.node').forEach(x=>x.classList.remove('sel'));}
+vp.addEventListener('mousedown',e=>{dragging=true;sx=e.clientX-tx;sy=e.clientY-ty;vp.classList.add('grabbing');});
+window.addEventListener('mousemove',e=>{if(!dragging)return;tx=e.clientX-sx;ty=e.clientY-sy;apply();});
+window.addEventListener('mouseup',()=>{dragging=false;vp.classList.remove('grabbing');});
+vp.addEventListener('wheel',e=>{e.preventDefault();zoomTree(e.deltaY<0?1.1:0.9);},{passive:false});
+// touch
+let lastDist=null;
+vp.addEventListener('touchstart',e=>{if(e.touches.length===1){dragging=true;sx=e.touches[0].clientX-tx;sy=e.touches[0].clientY-ty;}},{passive:true});
+vp.addEventListener('touchmove',e=>{
+  if(e.touches.length===2){e.preventDefault();const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);if(lastDist)zoomTree(d/lastDist);lastDist=d;}
+  else if(dragging&&e.touches.length===1){tx=e.touches[0].clientX-sx;ty=e.touches[0].clientY-sy;apply();}
+},{passive:false});
+vp.addEventListener('touchend',()=>{dragging=false;lastDist=null;});
+</script>
+</body>
+</html>
