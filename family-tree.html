@@ -287,7 +287,14 @@ function showDetail(pid){
   let facts='';
   if(p.birth.date||p.birth.place) facts+=fact('Born',[p.birth.date,p.birth.place].filter(Boolean).join(' · '));
   if(p.death.date||p.death.place) facts+=fact('Died',[p.death.date,p.death.place].filter(Boolean).join(' · '));
+  if(p.burial && (p.burial.date||p.burial.place)) facts+=fact('Buried',[p.burial.date,p.burial.place].filter(Boolean).join(' · '));
+  if(p.occupation && p.occupation.length) facts+=fact('Occupation',p.occupation.join('; '));
+  if(p.education && p.education.length) facts+=fact('Education',p.education.join('; '));
   if(p.sex) facts+=fact('Sex',p.sex==='M'?'Male':p.sex==='F'?'Female':p.sex);
+  if(p.notes && p.notes.length){
+    facts+='<div class="fact" style="border-left-color:var(--gold)"><div class="k">From the family records</div>'+
+      p.notes.map(n=>`<div class="v" style="font-size:14.5px;margin-top:3px">“${n.replace(/</g,'&lt;').replace(/\n/g,'<br>')}”</div>`).join('')+'</div>';
+  }
   if(p.living) facts+='<div class="fact"><div class="k">Living relative</div><div class="v" style="font-size:14px">Details are hidden in this public preview to protect privacy. In the real site they\'re visible to logged-in family only.</div></div>';
   document.getElementById('dfacts').innerHTML=facts||'<div class="fact"><div class="v">No further details in the current file — this is where a family member could add a memory.</div></div>';
   let rel='';
