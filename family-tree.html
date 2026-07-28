@@ -94,7 +94,7 @@ a{color:inherit;text-decoration:none}
     <div class="sub" id="statline">Loading family…</div>
   </div>
   <div class="search">
-    <input id="q" placeholder="Search 686 relatives…" autocomplete="off">
+    <input id="q" placeholder="Search relatives…" autocomplete="off">
     <div class="results" id="results"></div>
   </div>
   <div class="tools">
@@ -137,7 +137,7 @@ let expanded = new Set([ROOT]);
 let SEL = null;
 
 document.getElementById('statline').textContent =
-  Object.keys(I).length + " relatives · " + Object.keys(F).length + " families · imported from battlesfamily2019.ged";
+  Object.keys(I).length + " relatives · " + Object.keys(F).length + " families · imported from TribalPages (updated Jul 2026)";
 
 /* ---- relationships ---- */
 function childrenOf(pid){
