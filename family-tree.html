@@ -135,8 +135,8 @@ a{color:inherit;text-decoration:none}
   </figure>
 </div>
 <style>
-.dav.clickable{cursor:zoom-in;transition:transform .12s,box-shadow .12s}
-.dav.clickable:hover{transform:scale(1.05);box-shadow:0 0 0 4px rgba(201,162,75,.35)}
+.dav.clickable,.av.clickable{cursor:zoom-in;transition:transform .12s,box-shadow .12s}
+.dav.clickable:hover,.av.clickable:hover{transform:scale(1.08);box-shadow:0 0 0 4px rgba(201,162,75,.35)}
 #lightbox{position:fixed;inset:0;z-index:50;background:rgba(12,4,5,.92);display:none;align-items:center;justify-content:center;padding:28px;backdrop-filter:blur(3px)}
 #lightbox.show{display:flex}
 #lightbox-fig{margin:0;max-width:92vw;max-height:92vh;display:flex;flex-direction:column;align-items:center}
@@ -242,13 +242,17 @@ function render(){
     const sp=spousesOf(n.pid).map(s=>I[s].name).slice(0,1);
     el.innerHTML=`
       <div class="gen-badge">Gen ${n.depth+1}</div>
-      <div class="av">${avatarHTML(n.pid)}</div>
+      <div class="av${PHOTOS[n.pid]?' clickable':''}" title="${PHOTOS[n.pid]?'Click to enlarge':''}">${avatarHTML(n.pid)}</div>
       <div class="nm">${p.name}</div>
       <div class="yr">${lifespan(p)||'&nbsp;'}</div>
       ${sp.length?`<div class="sp">m. ${sp[0]}</div>`:''}
       ${n.kids>0?`<div class="caret" title="${n.open?'Collapse':'Expand'} ${n.kids} children">${n.open?'▴':'▾'}<span class="n">${n.kids}</span></div>`:''}
     `;
-    el.addEventListener('click',e=>{ if(e.target.closest('.caret'))return; selectPerson(n.pid); });
+    el.addEventListener('click',e=>{
+      if(e.target.closest('.caret'))return;
+      if(PHOTOS[n.pid] && e.target.closest('.av')){ e.stopPropagation(); openLightbox(n.pid); return; }
+      selectPerson(n.pid);
+    });
     const car=el.querySelector('.caret');
     if(car) car.addEventListener('click',e=>{ e.stopPropagation(); toggle(n.pid); });
     stage.appendChild(el);
